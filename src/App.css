@@ -1,0 +1,741 @@
+/* ===== App.css - 全应用样式 ===== */
+
+/* ---------- 首页 Home ---------- */
+
+.page-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  gap: 32px;
+}
+
+.home-hero {
+  margin-top: 40px;
+}
+
+.home-mascot {
+  font-size: 80px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.home-title {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 8px;
+}
+
+.home-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.home-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.home-btn {
+  display: block;
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-size: 18px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.home-btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+}
+
+.home-btn-secondary {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  padding: 20px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.feature-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.feature-card p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------- 宠物页 Pet ---------- */
+
+.page-pet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.pet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.pet-back-btn,
+.pet-garden-btn {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.pet-header-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pet-header-emoji {
+  font-size: 24px;
+}
+
+.pet-header-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pet-header-level {
+  font-size: 13px;
+  background: var(--primary-light);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.pet-header-age {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.pet-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ---------- 宠物画布 PetView ---------- */
+
+.pet-view {
+  position: relative;
+}
+
+.pet-view-clickable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pet-view-clickable:active .pet-canvas {
+  transform: scale(0.97);
+  transition: transform 0.1s;
+}
+
+.pet-canvas {
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+/* ---------- 情绪气泡 EmotionBubble ---------- */
+
+.emotion-bubble {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  animation: bubbleFloat 2s ease-in-out infinite alternate;
+}
+
+.emotion-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--card-bg);
+}
+
+.emotion-bubble-flash {
+  animation: bubblePop 0.3s ease-in-out;
+  background: var(--primary-light);
+  color: #fff;
+}
+
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- 状态栏 StatusBar ---------- */
+
+.status-bar-container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-bar-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icon {
+  font-size: 16px;
+}
+
+.status-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+}
+
+.status-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-good { color: var(--success); }
+.status-warn { color: var(--warning); }
+.status-danger { color: var(--danger); }
+
+.status-bar-track {
+  height: 10px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.status-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+/* ---------- 操作面板 ActionPanel ---------- */
+
+.action-panel {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, opacity 0.2s;
+  min-width: 80px;
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.action-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.action-btn-cooldown {
+  opacity: 0.5;
+}
+
+.action-icon {
+  font-size: 28px;
+}
+
+.action-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.action-btn-reset {
+  background: #f0f0f0;
+}
+
+/* ---------- 皮肤切换器 SkinSwitcher ---------- */
+
+.skin-switcher {
+  width: 100%;
+  max-width: 360px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px 16px 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.skin-switcher-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.skin-switcher-label strong {
+  color: var(--text);
+}
+
+.skin-switcher-list {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skin-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  min-width: 60px;
+}
+
+.skin-btn:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.skin-btn-active {
+  border-color: var(--primary);
+  background: #F0EDFF;
+}
+
+.skin-btn-emoji {
+  font-size: 24px;
+}
+
+.skin-btn-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.skin-btn-active .skin-btn-label {
+  color: var(--primary);
+}
+
+.skin-btn-check {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.skin-switcher-toast {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--primary);
+  animation: skinToastIn 0.3s ease-out, skinToastOut 0.3s ease-in 2s forwards;
+}
+
+@keyframes skinToastIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes skinToastOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ---------- 进化动画 EvolutionView ---------- */
+
+.evolution-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.evolution-card {
+  background: linear-gradient(145deg, #fff, #f0e6ff);
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(124, 92, 255, 0.3);
+}
+
+.evolution-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.evolution-content {
+  position: relative;
+  z-index: 1;
+}
+
+.evolution-sparkle {
+  font-size: 40px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.evolution-title {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.evolution-chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.evolution-from {
+  opacity: 0.6;
+}
+
+.evolution-to {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.evolution-arrow {
+  display: inline-block;
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.evolution-level {
+  font-size: 16px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.evolution-dismiss-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 12px 40px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.evolution-dismiss-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- 花园 Garden ---------- */
+
+.page-garden {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.garden-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.garden-back-btn,
+.garden-pet-btn {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.garden-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ===== 分区 ===== */
+
+.garden-section {
+  padding: 0 20px 8px;
+}
+
+.garden-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.garden-section-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+/* ===== 卡片网格 ===== */
+
+.garden-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.garden-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.garden-card:hover {
+  transform: translateY(-2px);
+}
+
+.garden-card-unlocked {
+  border-color: var(--success);
+}
+
+.garden-card-active {
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(124, 92, 255, 0.2);
+}
+
+.garden-card-neighbor {
+  border-color: var(--border);
+}
+
+.garden-pet-emoji {
+  font-size: 48px;
+  display: block;
+}
+
+.garden-card-info h3 {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.garden-tag-active {
+  font-size: 10px;
+  background: var(--primary);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.garden-tag-locked {
+  font-size: 10px;
+  background: #ddd;
+  color: #888;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.garden-tag-done {
+  font-size: 10px;
+  background: var(--success);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.garden-card-status {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ===== 进化进度条 ===== */
+
+.evo-progress {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.evo-progress-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+  text-align: left;
+}
+
+.evo-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.evo-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--success), #2ecc71);
+  transition: width 0.5s ease;
+}
+
+.garden-card-hint {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.garden-card-locked {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+}
+
+.garden-card-active-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 16px;
+}
+
+.garden-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 20px;
+  margin-top: auto;
+}
