@@ -2,6 +2,8 @@
 
 一个"会饿、会困、会成长"的网页电子宠物系统，基于 React + TypeScript + Vite 构建。
 
+> 🌐 在线体验：**[digitalpet-wine.vercel.app](https://digitalpet-wine.vercel.app/)**
+
 ## 快速开始
 
 ```bash
@@ -114,6 +116,6 @@ npm run build   # 输出到 dist/
 
 将 `dist/` 部署到任意静态托管：
 
-- **Vercel**：Build `npm run build`，Output `dist`
+- **Vercel**：Build `npm run build`，Output `dist`（[在线地址](https://digitalpet-wine.vercel.app/)）
 - **Netlify**：拖拽 `dist/` 文件夹
 - **GitHub Pages**：配置 actions 自动部署 `dist/`
